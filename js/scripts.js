@@ -1,4 +1,4 @@
-//Business Logic
+
 function Orders () {
   this.pizzas = [];
   this.indexing = 0;
@@ -6,7 +6,6 @@ function Orders () {
 
 Orders.prototype.addOrder = function(pizza){
   pizza.id = this.indexing;
-  this.indexing ++;
   this.pizzas.push(pizza);
 }
 
@@ -50,8 +49,20 @@ $(document).ready(function(){
     $(`.results.${this.id}`).show();
   }
 
+  function newPizzaForm(orderObject) {
+    let formContainer = $("#original");
+    let newFormContainer = formContainer.clone(true);
+    console.log(newFormContainer);
+    newFormContainer.attr("id", `container${orderObject.indexing}`);
+    let newId = newFormContainer.children("form").attr("id", `pizza${orderObject.indexing}`);
+    console.log(newId, newClass);
+    $(".page.container").append(newFormContainer);
+  }
 
-  $("#pizza0").submit(function(event){
+  $(".page.container").on("click", "#new", function(){
+    newPizzaForm(pizzaOrders);
+  })
+  $("form").submit(function(event){
     event.preventDefault();
     let size = $("input[name=size]:radio:checked");
     let toppings = gatherToppingsInput();

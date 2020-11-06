@@ -10,95 +10,97 @@
   <title>Max's Pizza Parlor</title>
 </head>
 <body>
-  <div class="container">
-    <form id="pizza0">
-      <div class="row">
-        <div class="form-group col-lg-4" id="size">
-          <h3>Size:</h3>
-          <div class="form-check">
-            <input type="radio" class="form-check-input" name="size" id="small" value="10">
-            <label for="small" class="form-check-label">Small(10")</label>
+  <div class="page container">
+    <div class="container" id="original">
+      <form id="pizza">
+        <div class="row">
+          <div class="form-group col-lg-4" id="size">
+            <h3>Size:</h3>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" name="size" id="small" value="10">
+              <label for="small" class="form-check-label">Small(10")</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" name="size" id="medium" value="15">
+              <label for="medium" class="form-check-label">Medium(14")</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" name="size" id="large" value="22">
+              <label for="large" class="form-check-label">Large(18")</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" name="size" id="xl" value="28">
+              <label for="xl" class="form-check-label">X-Large(22")</label>
+            </div>
           </div>
-          <div class="form-check">
-            <input type="radio" class="form-check-input" name="size" id="medium" value="15">
-            <label for="medium" class="form-check-label">Medium(14")</label>
+          <div class="form-group col-lg-4" id="sauce">
+            <h3>Sauce:</h3>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" name="sauce" id="red" value="0">
+              <label for="red" class="form-check-label">Classic Red</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" name="sauce" id="white" value="2">
+              <label for="white" class="form-check-label">Creamy White</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" name="sauce" id="pesto" value="4">
+              <label for="pesto" class="form-check-label">Pesto</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" name="sauce" id="none" value="0">
+              <label for="none" class="form-check-label">No Sauce</label>
+            </div>
           </div>
-          <div class="form-check">
-            <input type="radio" class="form-check-input" name="size" id="large" value="22">
-            <label for="large" class="form-check-label">Large(18")</label>
-          </div>
-          <div class="form-check">
-            <input type="radio" class="form-check-input" name="size" id="xl" value="28">
-            <label for="xl" class="form-check-label">X-Large(22")</label>
+          <div class="form-group col-lg-4" id="toppings">
+            <h3>Toppings:</h3>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" name="toppings" id="pepperoni" value="1">
+              <label for="pepperoni" class="form-check-label">Pepperoni</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" name="toppings" id="sausage" value="3">
+              <label for="sausage" class="form-check-label">Italian Sausage</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" name="toppings" id="mushrooms" value="2">
+              <label for="mushrooms" class="form-check-label">Mushrooms</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" name="toppings" id="peppers" value="1">
+              <label for="peppers" class="form-check-label">Bell Peppers</label>
+            </div>
           </div>
         </div>
-        <div class="form-group col-lg-4" id="sauce">
-          <h3>Sauce:</h3>
-          <div class="form-check">
-            <input type="radio" class="form-check-input" name="sauce" id="red" value="0">
-            <label for="red" class="form-check-label">Classic Red</label>
+        <button type="submit" class="done btn btn-dark">Done</button>
+      </form>
+      <div class="results">
+        <div class="row">
+          <div class="col-lg-3">
+            <h3>Price:</h3>
+            <span class="price"></span>
           </div>
-          <div class="form-check">
-            <input type="radio" class="form-check-input" name="sauce" id="white" value="2">
-            <label for="white" class="form-check-label">Creamy White</label>
+
+          <div class="col-lg-3">
+            <h3>Size:</h3>
+            <span class="size"></span>
           </div>
-          <div class="form-check">
-            <input type="radio" class="form-check-input" name="sauce" id="pesto" value="4">
-            <label for="pesto" class="form-check-label">Pesto</label>
+
+          <div class="col-lg-3">
+            <h3>Sauce:</h3>
+            <span class="sauce"></span>
           </div>
-          <div class="form-check">
-            <input type="radio" class="form-check-input" name="sauce" id="none" value="0">
-            <label for="none" class="form-check-label">No Sauce</label>
-          </div>
-        </div>
-        <div class="form-group col-lg-4" id="toppings">
-          <h3>Toppings:</h3>
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" name="toppings" id="pepperoni" value="1">
-            <label for="pepperoni" class="form-check-label">Pepperoni</label>
-          </div>
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" name="toppings" id="sausage" value="3">
-            <label for="sausage" class="form-check-label">Italian Sausage</label>
-          </div>
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" name="toppings" id="mushrooms" value="2">
-            <label for="mushrooms" class="form-check-label">Mushrooms</label>
-          </div>
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" name="toppings" id="peppers" value="1">
-            <label for="peppers" class="form-check-label">Bell Peppers</label>
+
+          <div class="col-lg-3">
+            <h3>Toppings:</h3>
+            <span class="toppings 0"></span>
           </div>
         </div>
+        <button>Edit Pizza</button>
       </div>
-      <button type="submit" class="done btn btn-dark">Done</button>
-    </form>
-    <div class="results 0">
-      <div class="row">
-        <div class="col-lg-3">
-          <h3>Price:</h3>
-          <span class="price 0"></span>
-        </div>
-
-        <div class="col-lg-3">
-          <h3>Size:</h3>
-          <span class="size 0"></span>
-        </div>
-
-        <div class="col-lg-3">
-          <h3>Sauce:</h3>
-          <span class="sauce 0"></span>
-        </div>
-
-        <div class="col-lg-3">
-          <h3>Toppings:</h3>
-          <span class="toppings 0"></span>
-        </div>
-      </div>
-      <button>Edit Pizza</button>
     </div>
+    <button type="button" class="btn btn-info" id="new"><strong>Create New Pizza</strong></button>
+    <button type="button" class="btn btn-danger" id="pay">Finsih and Pay</button>
   </div>
-  <button type="button" class="btn btn-info" id="new">Create New Pizza</button>
-  <button type="button" class="btn btn-danger" id="pay">Finsih and Pay</button>
 </body>
 </html>
