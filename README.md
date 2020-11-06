@@ -34,6 +34,26 @@ Welcome to Max's Pizza Parlor. Start by building your own pizza, choosing from o
 1. Test: Prototype method to compile values from user inputs for the final price
 2. Expect(Pizza.compilePrice().toEqual(this.price = 15))
 
+#### Describe: Pizza.compilePrice();
+1. Test: Prototype method to compile values from user inputs for the final price
+2. Expect(Pizza.compilePrice().toEqual(this.price = 15))
+
+#### Describe: Orders();
+1. Test: Create an Orders object with an array for all the pizza orders to be stored in
+2. Expect(Orders().toEqual(newOrdersObject))
+
+#### Describe: Orders.addOrder();
+1. Test: Take pizza order as an argument and add it to pizzas array and increment indexing key-value
+2. Expect(Orders.addOrder(pizza).toEqual(Orders{
+  this.pizzas = [pizza];
+  this.indexing = 1;
+}))
+
+
+
+
+
+
 
 ## Legal
 * Copyright © 2020 Max Brockbank
