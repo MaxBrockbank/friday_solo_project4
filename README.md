@@ -30,6 +30,11 @@ Welcome to Max's Pizza Parlor. Start by building your own pizza, choosing from o
 1. Test: Gather info for all checked checkboxes and push to an array
 2. Expect(gatherToppingsInput().toEqual([pepperoni, sausage, mushrooms]))
 
+#### Describe: Pizza.compilePrice();
+1. Test: Prototype method to compile values from user inputs for the final price
+2. Expect(Pizza.compilePrice().toEqual(this.price = 15))
+
+
 ## Legal
 * Copyright © 2020 Max Brockbank
 * This software is licensed under the MIT license
