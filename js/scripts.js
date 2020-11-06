@@ -106,6 +106,10 @@ $(".done").click(function(){
   $(".edit").click(function(){
     $(`#pizza${this.classList[3]}`).show();
     $(`#results${this.classList[3]}`).hide();
+    pizzaOrders.pizzas[this.classList[3]].price = 0;
+    pizzaOrders.pizzas[this.classList[3]].size = '';
+    pizzaOrders.pizzas[this.classList[3]].sauce = "";
+    pizzaOrders.pizzas[this.classList[3]].price = [];
   })
 })
 
