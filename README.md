@@ -22,6 +22,14 @@ Welcome to Max's Pizza Parlor. Start by building your own pizza, choosing from o
 
 ## Specs
 
+#### Describe: Pizza();
+1. Test: Build a pizza object passing in userinput for size and toppings
+2. Expect(Pizza(size, toppings).toEqual(newPizzaObject))
+
+#### Describe: gatherToppingsInput();
+1. Test: Gather info for all checked checkboxes and push to an array
+2. Expect(gatherToppingsInput().toEqual([pepperoni, sausage, mushrooms]))
+
 ## Legal
 * Copyright © 2020 Max Brockbank
 * This software is licensed under the MIT license
