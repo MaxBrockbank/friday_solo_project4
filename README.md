@@ -49,6 +49,10 @@ Welcome to Max's Pizza Parlor. Start by building your own pizza, choosing from o
   this.indexing = 1;
 }))
 
+#### Describe: Orders.findOrder();
+1. Test: Take submit button id and use it to find the coresponding order
+2.
+
 #### Describe: newPizzaForm();
 1. Test: Dynamically create a new form for a new pizza object when you click the Create New Pizza button
 2. Expect(newPizzaForm().toEqual());
