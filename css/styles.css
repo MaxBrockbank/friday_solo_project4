@@ -39,3 +39,7 @@
 #next{
   width: 100%;
 }
+
+.nope{
+  border: 3px solid red;
+}

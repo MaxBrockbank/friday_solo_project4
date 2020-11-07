@@ -55,6 +55,16 @@ function gatherToppingsInput(toppings){
 $(document).ready(function(){
   let pizzaOrders = new Orders();
 
+  $("#next").click(function(){
+    if($("#usersName").val()!== undefined && $("#usersName").val().length > 0){
+      $("#username").hide();
+      $("#your-name").text($("#usersName").val());
+    } else {
+      $("#usersName").addClass("nope");
+    }
+  })
+
+
   Pizza.prototype.showOrderDetails = function(){
     $(`.price.${this.id}`).text("$" + this.price);
     $(`.size.${this.id}`).text(this.size.attr("id"));
