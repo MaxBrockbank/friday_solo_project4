@@ -19,6 +19,9 @@ Welcome to Max's Pizza Parlor. Start by building your own pizza, choosing from o
 * JavaScript/jQuery
 
 ## Known Bugs
+* There is no input validation so if you submit the pizza forms incomplete, there is a potential to get a price of $NaN.
+
+* Cannot remove a pizza form once it has been created without refreshing page.
 
 ## Specs
 
@@ -49,13 +52,17 @@ Welcome to Max's Pizza Parlor. Start by building your own pizza, choosing from o
   this.indexing = 1;
 }))
 
-#### Describe: Orders.findOrder();
+#### Describe: Orders.findPizza();
 1. Test: Take submit button id and use it to find the coresponding order
-2.
+2. Expect(Order.findPizza(id).toEqual(pizzaObject))
 
 #### Describe: newPizzaForm();
 1. Test: Dynamically create a new form for a new pizza object when you click the Create New Pizza button
 2. Expect(newPizzaForm().toEqual());
+
+#### Describe: Pizza.resetValues();
+1. Test: when the user pushes the edit button that pizza object's values are reset to keep track of price correctly
+2. Expect(Pizza.resetValue().toEqual());
 
 
 

@@ -2,6 +2,7 @@
 function Orders () {
   this.pizzas = [];
   this.indexing = 0;
+  this.total = 0;
 }
 
 Orders.prototype.addOrder = function(pizza){
@@ -33,7 +34,8 @@ Pizza.prototype.compilePrice = function(){
   }
 };
 
-Pizza.prototype.resetValues = function(){
+Pizza.prototype.resetValues = function(orderObject){
+  orderObject.total -= this.price;
   this.size ="";
   this.sauce = "";
   this.toppings="";
@@ -91,7 +93,7 @@ $(".done").click(function(){
     console.log(this.id);
     let pizzaIndex = parseInt($(event.target).children(".done").attr("id"));
     let pizza = pizzaOrders.findPizza(pizzaIndex);
-    pizza.resetValues();
+    pizza.resetValues(pizzaOrders);
     let size = $(`#${this.id} input[name=size]:radio:checked`);
     let sauce = $(`#${this.id} input[name=sauce]:radio:checked`);
     let toppings = gatherToppingsInput($(`#${this.id} input[name=toppings]`));
@@ -101,6 +103,11 @@ $(".done").click(function(){
     pizza.compilePrice(); 
     pizza.showOrderDetails();
     console.log(pizza.price);
+    pizzaOrders.total +=pizza.price
+    $("#userTotal").text(" $" + pizzaOrders.total);
+    if(pizzaOrders.indexing > 0){
+      $("#pay").show();
+    }
   })
 })
   
