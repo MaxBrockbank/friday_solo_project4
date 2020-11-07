@@ -33,6 +33,12 @@ Pizza.prototype.compilePrice = function(){
   }
 };
 
+Pizza.prototype.resetValues = function(){
+  this.size ="";
+  this.sauce = "";
+  this.toppings="";
+  this.price = 0;
+}
 
 function gatherToppingsInput(toppings){
   let selectedToppings = [];
@@ -62,7 +68,6 @@ $(document).ready(function(){
   function newPizzaForm(orderObject) {
     let formContainer = $("#original");
     let newFormContainer = formContainer.clone(true);
-    console.log(newFormContainer);
     newFormContainer.attr("id", `container${orderObject.indexing}`);
     newFormContainer.children("form").attr("id", `pizza${orderObject.indexing}`);
     newFormContainer.children(".results").attr("id", `results${orderObject.indexing}`);
@@ -70,14 +75,12 @@ $(document).ready(function(){
     newFormContainer.children("form").children(".done").attr("id", `${orderObject.indexing}`);
     newFormContainer.children(".results").children(".edit").addClass(`${orderObject.indexing}`);
     $(".page.container").append(newFormContainer);
-    console.log(orderObject.indexing);
   }
 
   $("body").on("click", "#new", function(){
     newPizzaForm(pizzaOrders);
     let pizza = new Pizza();
     pizzaOrders.addOrder(pizza);
-    console.log(pizzaOrders);
     pizzaOrders.indexing ++;
   })
 
@@ -88,28 +91,22 @@ $(".done").click(function(){
     console.log(this.id);
     let pizzaIndex = parseInt($(event.target).children(".done").attr("id"));
     let pizza = pizzaOrders.findPizza(pizzaIndex);
-    console.log(parseInt($(event.target).children(".done").attr("id")));
+    pizza.resetValues();
     let size = $(`#${this.id} input[name=size]:radio:checked`);
     let sauce = $(`#${this.id} input[name=sauce]:radio:checked`);
-    console.log(sauce);
     let toppings = gatherToppingsInput($(`#${this.id} input[name=toppings]`));
-    console.log(pizza);
     pizza.size = size;
     pizza.sauce = sauce;
     pizza.toppings = toppings;
     pizza.compilePrice(); 
     pizza.showOrderDetails();
-    console.log(pizzaOrders);
+    console.log(pizza.price);
   })
 })
   
   $(".edit").click(function(){
     $(`#pizza${this.classList[3]}`).show();
     $(`#results${this.classList[3]}`).hide();
-    pizzaOrders.pizzas[this.classList[3]].price = 0;
-    pizzaOrders.pizzas[this.classList[3]].size = '';
-    pizzaOrders.pizzas[this.classList[3]].sauce = "";
-    pizzaOrders.pizzas[this.classList[3]].price = [];
   })
 })
 
