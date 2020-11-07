@@ -125,6 +125,10 @@ $(".done").click(function(){
     $(`#pizza${this.classList[3]}`).show();
     $(`#results${this.classList[3]}`).hide();
   })
+
+  $("#pay").click(function(){
+    $("#payment").show();
+  })
 })
 
 

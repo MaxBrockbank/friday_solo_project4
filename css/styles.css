@@ -43,3 +43,17 @@
 .nope{
   border: 3px solid red;
 }
+#payment{
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 10;
+  background-color:#DC3545;
+  text-align: center;
+  color: white;
+}
+
+#message{
+  padding-top: 240px;
+}
