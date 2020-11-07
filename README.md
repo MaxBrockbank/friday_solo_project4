@@ -64,6 +64,10 @@ Welcome to Max's Pizza Parlor. Start by building your own pizza, choosing from o
 1. Test: when the user pushes the edit button that pizza object's values are reset to keep track of price correctly
 2. Expect(Pizza.resetValue().toEqual());
 
+#### Describe: nameValidateAndHide();
+1. Test: Hide splash page name overlay if there is a name in the input field.
+2. Expect(nameValidateAndHide().toEqual());
+
 
 
 
