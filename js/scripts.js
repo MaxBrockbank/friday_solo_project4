@@ -100,7 +100,6 @@ $(document).ready(function(){
 $(".done").click(function(){
   $(`#pizza${this.id}`).submit(function(event){
     event.preventDefault(); 
-    console.log(this.id);
     let pizzaIndex = parseInt($(event.target).children(".done").attr("id"));
     let pizza = pizzaOrders.findPizza(pizzaIndex);
     pizza.resetValues(pizzaOrders);
@@ -112,7 +111,6 @@ $(".done").click(function(){
     pizza.toppings = toppings;
     pizza.compilePrice(); 
     pizza.showOrderDetails();
-    console.log(pizza.price);
     pizzaOrders.total +=pizza.price
     $("#userTotal").text(" $" + pizzaOrders.total);
     if(pizzaOrders.indexing > 0){

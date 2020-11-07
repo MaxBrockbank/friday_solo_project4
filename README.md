@@ -11,7 +11,7 @@ Welcome to Max's Pizza Parlor. Start by building your own pizza, choosing from o
 ## Set-up Instructions
 1. Clone this repository to your desktop
 2. Open index.html in the browser of your choice
-* _Alternatively you can just click [HERE](#)
+* _Alternatively you can just click [HERE](https://maxbrockbank.github.io/friday_solo_project4/)_
 
 ## Technologies Used
 * HTML
@@ -20,7 +20,6 @@ Welcome to Max's Pizza Parlor. Start by building your own pizza, choosing from o
 
 ## Known Bugs
 * There is no input validation so if you submit the pizza forms incomplete, there is a potential to get a price of $NaN.
-
 * Cannot remove a pizza form once it has been created without refreshing page.
 
 ## Specs
@@ -67,12 +66,6 @@ Welcome to Max's Pizza Parlor. Start by building your own pizza, choosing from o
 #### Describe: nameValidateAndHide();
 1. Test: Hide splash page name overlay if there is a name in the input field.
 2. Expect(nameValidateAndHide().toEqual());
-
-
-
-
-
-
 
 ## Legal
 * Copyright © 2020 Max Brockbank
