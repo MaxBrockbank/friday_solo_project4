@@ -126,6 +126,7 @@ $(".done").click(function(){
 
   $("#pay").click(function(){
     $("#payment").show();
+    $(".page.container").hide();
   })
 })
 
