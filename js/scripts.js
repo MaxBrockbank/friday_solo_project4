@@ -27,7 +27,7 @@ function Pizza (){
 
 
 Pizza.prototype.compilePrice = function(){
-  this.price += parseInt(this.size.val());
+  this.price += parseInt(this.size.val()); 
   this.price += parseInt(this.sauce.val());
   for (let i = 0; i < this.toppings.length; i++){
     this.price += parseInt(this.toppings[i].defaultValue);
@@ -52,6 +52,29 @@ function gatherToppingsInput(toppings){
   return selectedToppings;
 }
 
+function newPizzaForm(orderObject) {
+  let formContainer = $("#original");
+  let newFormContainer = formContainer.clone(true);
+  newFormContainer.attr("id", `container${orderObject.indexing}`);
+  newFormContainer.children("form").attr("id", `pizza${orderObject.indexing}`);
+  newFormContainer.children(".results").attr("id", `results${orderObject.indexing}`);
+  newFormContainer.children(".results").children(".row").children(".col-lg-3").children("span").addClass(`${orderObject.indexing}`)
+  newFormContainer.children("form").children(".done").attr("id", `${orderObject.indexing}`);
+  newFormContainer.children(".results").children(".edit").addClass(`${orderObject.indexing}`);
+  $(".page.container").append(newFormContainer);
+}
+
+function showOrderDetails (pizzaObject){
+  $(`.price.${pizzaObject.id}`).text("$" + pizzaObject.price);
+  $(`.size.${pizzaObject.id}`).text(pizzaObject.size.attr("id")); 
+  $(`.sauce.${pizzaObject.id}`).text(pizzaObject.sauce.attr("id")); 
+  let toppingNames = pizzaObject.toppings.map(topping => {
+    return topping.id;
+  })
+  $(`.toppings.${pizzaObject.id}`).text(toppingNames.join(", "));
+  $(`#pizza${pizzaObject.id}`).hide();
+  $(`#results${pizzaObject.id}`).show();
+}
 $(document).ready(function(){
   let pizzaOrders = new Orders();
 
@@ -64,30 +87,6 @@ $(document).ready(function(){
     }
   })
 
-
-  Pizza.prototype.showOrderDetails = function(){
-    $(`.price.${this.id}`).text("$" + this.price);
-    $(`.size.${this.id}`).text(this.size.attr("id"));
-    $(`.sauce.${this.id}`).text(this.sauce.attr("id"));
-    let toppingNames = this.toppings.map(topping => {
-      return topping.id;
-    })
-    $(`.toppings.${this.id}`).text(toppingNames.join(", "));
-    $(`#pizza${this.id}`).hide();
-    $(`#results${this.id}`).show();
-  }
-
-  function newPizzaForm(orderObject) {
-    let formContainer = $("#original");
-    let newFormContainer = formContainer.clone(true);
-    newFormContainer.attr("id", `container${orderObject.indexing}`);
-    newFormContainer.children("form").attr("id", `pizza${orderObject.indexing}`);
-    newFormContainer.children(".results").attr("id", `results${orderObject.indexing}`);
-    newFormContainer.children(".results").children(".row").children(".col-lg-3").children("span").addClass(`${orderObject.indexing}`)
-    newFormContainer.children("form").children(".done").attr("id", `${orderObject.indexing}`);
-    newFormContainer.children(".results").children(".edit").addClass(`${orderObject.indexing}`);
-    $(".page.container").append(newFormContainer);
-  }
 
   $("body").on("click", "#new", function(){
     newPizzaForm(pizzaOrders);
@@ -110,7 +109,7 @@ $(".done").click(function(){
     pizza.sauce = sauce;
     pizza.toppings = toppings;
     pizza.compilePrice(); 
-    pizza.showOrderDetails();
+    showOrderDetails(pizza);
     pizzaOrders.total +=pizza.price
     $("#userTotal").text(" $" + pizzaOrders.total);
     if(pizzaOrders.indexing > 0){
